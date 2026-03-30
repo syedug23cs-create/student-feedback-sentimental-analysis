@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — FeedBack Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-icon"><i class="fas fa-chart-pie"></i></div>
+            <span>FeedBack Pro</span>
+        </div>
+        <nav class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="dashboard.html" class="sidebar-nav-link active">
+                    <i class="fas fa-home sidebar-nav-icon"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="feedback.html" class="sidebar-nav-link">
+                    <i class="fas fa-envelope sidebar-nav-icon"></i><span>Submit Feedback</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="analytics.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-bar sidebar-nav-icon"></i><span>Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="profile.html" class="sidebar-nav-link">
+                    <i class="fas fa-user-circle sidebar-nav-icon"></i><span>My Profile</span>
+                </a>
+            </li>
+            <div class="sidebar-divider"></div>
+            <li class="sidebar-nav-item">
+                <a href="#" id="admin-panel" class="sidebar-nav-link" style="display:none;">
+                    <i class="fas fa-shield-alt sidebar-nav-icon"></i><span>Admin Panel</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="#" id="logout-btn" class="sidebar-nav-link">
+                    <i class="fas fa-sign-out-alt sidebar-nav-icon"></i><span>Logout</span>
+                </a>
+            </li>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-info">
+                <div class="user-avatar" id="user-avatar">S</div>
+                <div>
+                    <div class="user-name" id="user-name">Student</div>
+                    <div class="user-role" id="user-role">Student</div>
+                </div>
+            </div>
+            <button id="dark-mode-btn" class="btn btn-secondary" style="width:100%;font-size:.85rem;">
+                <i class="fas fa-moon"></i> <span>Dark Mode</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="page-intro">
+                <p class="eyebrow">Welcome back, <span id="greeting-name">Student</span></p>
+                <h1 class="page-heading">Dashboard</h1>
+                <p class="page-copy">Turn student sentiment into action with one modern analytics workspace.</p>
+                <p class="current-date" id="current-date"></p>
+            </div>
+            <div class="top-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search feedback…">
+                </div>
+                <button class="icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i></button>
+                <div class="profile-pill" id="user-profile-icon">
+                    <div class="profile-avatar"><i class="fas fa-user"></i></div>
+                    <div class="profile-summary">
+                        <span id="profile-name">Student</span>
+                        <small id="profile-role">Student</small>
+                    </div>
+                    <i class="fas fa-chevron-down profile-chevron"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                <div class="stat-label">Total Feedback</div>
+                <div class="stat-value" id="total-feedback">—</div>
+            </div>
+            <div class="stat-card positive">
+                <div class="stat-icon"><i class="fas fa-smile"></i></div>
+                <div class="stat-label">Positive</div>
+                <div class="stat-value" id="positive-percentage">—</div>
+            </div>
+            <div class="stat-card neutral">
+                <div class="stat-icon"><i class="fas fa-meh"></i></div>
+                <div class="stat-label">Neutral</div>
+                <div class="stat-value" id="neutral-percentage">—</div>
+            </div>
+            <div class="stat-card negative">
+                <div class="stat-icon"><i class="fas fa-frown"></i></div>
+                <div class="stat-label">Negative</div>
+                <div class="stat-value" id="negative-percentage">—</div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>Sentiment Distribution</h3>
+                <div class="chart-canvas"><canvas id="sentiment-pie-chart"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <h3>Subject-wise Feedback</h3>
+                <div class="chart-canvas"><canvas id="subject-bar-chart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container">
+            <div class="filter-group">
+                <label>Sentiment</label>
+                <select id="sentiment-filter">
+                    <option value="">All Sentiments</option>
+                    <option value="positive">Positive</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="negative">Negative</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Subject</label>
+                <select id="subject-filter"><option value="">All Subjects</option></select>
+            </div>
+            <div class="filter-group">
+                <label>Faculty</label>
+                <select id="faculty-filter"><option value="">All Faculty</option></select>
+            </div>
+            <button class="btn btn-secondary" id="export-btn">
+                <i class="fas fa-download"></i> Export CSV
+            </button>
+        </div>
+
+        <!-- Feedback Table -->
+        <div class="feedback-table-container">
+            <h3 style="margin-bottom:1rem;">Recent Feedback</h3>
+            <table class="feedback-table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Subject</th>
+                        <th>Faculty</th>
+                        <th>Rating</th>
+                        <th>Sentiment</th>
+                        <th>Feedback</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="feedback-tbody">
+                    <tr>
+                        <td colspan="8" style="text-align:center;padding:2rem;color:var(--text-muted);">
+                            <i class="fas fa-spinner fa-spin"></i> Loading…
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+<script type="module" src="../js/pages/dashboard.js"></script>
+</body>
+</html>

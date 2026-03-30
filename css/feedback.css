@@ -1,0 +1,213 @@
+/* ====================================
+   FEEDBACK FORM & RELATED STYLES
+   ==================================== */
+
+/* Feedback Form Container */
+.feedback-form-container {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  padding: 1.5rem 2rem;
+  min-height: 100vh;
+}
+
+/* Form Card */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-form-header {
+  background: linear-gradient(135deg, #5b47e0 0%, #ec4899 100%);
+  padding: 1.75rem 2rem;
+  color: #fff;
+}
+.feedback-form-header h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: .35rem;
+}
+.feedback-form-header p {
+  font-size: .88rem;
+  opacity: .88;
+}
+
+.feedback-form-body {
+  padding: 1.75rem 2rem;
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 0;
+}
+
+.star {
+  font-size: 1.75rem;
+  color: var(--border);
+  cursor: pointer;
+  transition: color .2s, transform .2s;
+  line-height: 1;
+}
+.star:hover, .star.active {
+  color: var(--warning);
+  transform: scale(1.12);
+}
+
+.rating-value {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-left: .5rem;
+}
+
+/* Character Counter */
+.character-count {
+  font-size: .78rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: .35rem;
+}
+
+/* Sentiment Preview */
+.sentiment-preview {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin-top: .75rem;
+  display: none;
+  animation: slideInUp .3s ease;
+}
+.sentiment-preview.show { display: block; }
+
+.sentiment-preview h4 {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .85rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.sentiment-preview-item {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .35rem 0;
+  font-size: .85rem;
+}
+
+.sentiment-icon { font-size: 1.1rem; }
+.sentiment-label {
+  color: var(--text-muted);
+  font-weight: 500;
+  flex: 1;
+}
+.sentiment-percentage {
+  font-weight: 700;
+  color: var(--text);
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Form Footer */
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .75rem;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* Success Container */
+.feedback-success-container {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: scaleIn .4s ease;
+}
+.feedback-success-container.show { display: block; }
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--success);
+  margin-bottom: 1rem;
+  animation: scaleIn .5s ease .1s both;
+}
+
+.feedback-success-container h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+
+.feedback-success-container p {
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.success-actions {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Top Navbar (shared in inner pages) */
+.top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.navbar-icon {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color .2s;
+}
+.navbar-icon:hover { color: var(--primary); }
+
+.notification-badge { position: relative; }
+.badge-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  background: var(--danger);
+  border-radius: 50%;
+  border: 1.5px solid var(--surface);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feedback-form-container { margin-left: 0; padding: 1rem; }
+  .feedback-form-body { padding: 1.25rem; }
+  .feedback-form-header { padding: 1.25rem; }
+  .form-footer { padding: 1rem 1.25rem; }
+}

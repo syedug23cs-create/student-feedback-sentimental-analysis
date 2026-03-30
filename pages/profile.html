@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — FeedBack Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-icon"><i class="fas fa-chart-pie"></i></div>
+            <span>FeedBack Pro</span>
+        </div>
+        <nav class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="dashboard.html" class="sidebar-nav-link">
+                    <i class="fas fa-home sidebar-nav-icon"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="feedback.html" class="sidebar-nav-link">
+                    <i class="fas fa-envelope sidebar-nav-icon"></i><span>Submit Feedback</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="analytics.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-bar sidebar-nav-icon"></i><span>Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="profile.html" class="sidebar-nav-link active">
+                    <i class="fas fa-user-circle sidebar-nav-icon"></i><span>My Profile</span>
+                </a>
+            </li>
+            <div class="sidebar-divider"></div>
+            <li class="sidebar-nav-item">
+                <a href="#" id="logout-btn" class="sidebar-nav-link">
+                    <i class="fas fa-sign-out-alt sidebar-nav-icon"></i><span>Logout</span>
+                </a>
+            </li>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-info">
+                <div class="user-avatar" id="user-avatar">S</div>
+                <div>
+                    <div class="user-name" id="user-name">Student</div>
+                    <div class="user-role">Student</div>
+                </div>
+            </div>
+            <button id="dark-mode-btn" class="btn btn-secondary" style="width:100%;font-size:.85rem;">
+                <i class="fas fa-moon"></i> <span>Dark Mode</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-container">
+        <div class="quote-section">
+            "Your profile is a reflection of your contributions to educational improvement."
+        </div>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar" id="profile-avatar-large">S</div>
+            <div class="profile-info">
+                <h1 class="profile-name" id="profile-name">Student Name</h1>
+                <p class="profile-email" id="profile-email">student@example.com</p>
+                <div class="profile-badge-group">
+                    <span class="badge badge-info">Student</span>
+                    <span class="badge badge-success">Active</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Grid -->
+        <div class="profile-grid">
+            <!-- Personal Info -->
+            <div class="profile-section">
+                <div class="profile-section-header">
+                    <i class="fas fa-user-circle"></i> Personal Information
+                    <button class="btn-small" id="edit-profile-btn" style="margin-left:auto;">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="profile-section-body">
+                    <div class="info-item">
+                        <span class="info-label">Full Name</span>
+                        <span class="info-value" id="info-name">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value" id="info-email">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Student ID</span>
+                        <span class="info-value" id="info-student-id">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Department</span>
+                        <span class="info-value" id="info-department">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Year / Semester</span>
+                        <span class="info-value" id="info-year">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Member Since</span>
+                        <span class="info-value" id="info-joined">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Stats -->
+            <div class="profile-section">
+                <div class="profile-section-header">
+                    <i class="fas fa-chart-line"></i> My Feedback Statistics
+                </div>
+                <div class="profile-section-body">
+                    <div class="info-item">
+                        <span class="info-label">Total Submitted</span>
+                        <span class="info-value" id="stat-total">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Positive</span>
+                        <span class="info-value" style="color:var(--success);" id="stat-positive">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Neutral</span>
+                        <span class="info-value" style="color:var(--warning);" id="stat-neutral">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Negative</span>
+                        <span class="info-value" style="color:var(--danger);" id="stat-negative">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Avg. Rating</span>
+                        <span class="info-value" id="stat-avg-rating">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="profile-section">
+                <div class="profile-section-header">
+                    <i class="fas fa-cog"></i> Account Settings
+                </div>
+                <div class="profile-section-body" style="display:flex;flex-direction:column;gap:.6rem;">
+                    <button class="btn btn-secondary btn-block" id="change-password-btn">
+                        <i class="fas fa-key"></i> Change Password
+                    </button>
+                    <button class="btn btn-secondary btn-block" id="export-profile-btn">
+                        <i class="fas fa-download"></i> Export My Data
+                    </button>
+                    <button class="btn btn-danger btn-block" id="delete-account-btn">
+                        <i class="fas fa-trash"></i> Delete Account
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feedback History -->
+            <div class="feedback-history">
+                <div class="feedback-history-header">
+                    <i class="fas fa-history"></i> Recent Feedback History
+                    <button class="btn-small" id="export-feedback-btn" style="margin-left:auto;">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+                <div class="feedback-list" id="feedback-list">
+                    <div style="text-align:center;padding:2rem;color:var(--text-muted);">
+                        <i class="fas fa-spinner fa-spin"></i> Loading feedback history…
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal" id="edit-profile-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Edit Profile</h2>
+            <button class="modal-close" id="close-edit-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="edit-fullName">Full Name</label>
+                    <input type="text" id="edit-fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-studentId">Student ID</label>
+                    <input type="text" id="edit-studentId" name="studentId">
+                </div>
+                <div class="form-group">
+                    <label for="edit-department">Department</label>
+                    <select id="edit-department" name="department">
+                        <option>Computer Science</option>
+                        <option>Electronics</option>
+                        <option>Mechanical</option>
+                        <option>Civil</option>
+                        <option>Electrical</option>
+                        <option>Information Technology</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-year">Year / Semester</label>
+                    <select id="edit-year" name="year">
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancel-edit-btn">Cancel</button>
+            <button type="submit" form="edit-profile-form" class="btn btn-primary">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+<script type="module" src="../js/pages/profile.js"></script>
+</body>
+</html>

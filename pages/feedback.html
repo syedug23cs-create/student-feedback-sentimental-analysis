@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback — FeedBack Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-icon"><i class="fas fa-chart-pie"></i></div>
+            <span>FeedBack Pro</span>
+        </div>
+        <nav class="sidebar-nav">
+            <li class="sidebar-nav-item">
+                <a href="dashboard.html" class="sidebar-nav-link">
+                    <i class="fas fa-home sidebar-nav-icon"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="feedback.html" class="sidebar-nav-link active">
+                    <i class="fas fa-envelope sidebar-nav-icon"></i><span>Submit Feedback</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="analytics.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-bar sidebar-nav-icon"></i><span>Analytics</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a href="profile.html" class="sidebar-nav-link">
+                    <i class="fas fa-user-circle sidebar-nav-icon"></i><span>My Profile</span>
+                </a>
+            </li>
+            <div class="sidebar-divider"></div>
+            <li class="sidebar-nav-item">
+                <a href="#" id="logout-btn" class="sidebar-nav-link">
+                    <i class="fas fa-sign-out-alt sidebar-nav-icon"></i><span>Logout</span>
+                </a>
+            </li>
+        </nav>
+        <div class="sidebar-user">
+            <div class="user-info">
+                <div class="user-avatar" id="user-avatar">S</div>
+                <div>
+                    <div class="user-name" id="user-name">Student</div>
+                    <div class="user-role">Student</div>
+                </div>
+            </div>
+            <button id="dark-mode-btn" class="btn btn-secondary" style="width:100%;font-size:.85rem;">
+                <i class="fas fa-moon"></i> <span>Dark Mode</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feedback-form-container">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="page-intro">
+                <p class="eyebrow">Share your thoughts</p>
+                <h1 class="page-heading">Submit Feedback</h1>
+                <p class="page-copy">Your honest feedback helps improve the quality of education.</p>
+            </div>
+            <div class="top-actions">
+                <button class="icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i></button>
+                <div class="profile-pill" id="user-profile-icon">
+                    <div class="profile-avatar"><i class="fas fa-user"></i></div>
+                    <div class="profile-summary">
+                        <span id="profile-name">Student</span>
+                        <small>Student</small>
+                    </div>
+                    <i class="fas fa-chevron-down profile-chevron"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-section">
+            "Your feedback shapes the future of education — help us improve by sharing your honest thoughts."
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+            <div class="feedback-form-header">
+                <h2><i class="fas fa-pen-fancy"></i> Submit Your Feedback</h2>
+                <p>Please share your thoughts about your education experience. All feedback is anonymous to faculty.</p>
+            </div>
+
+            <div class="feedback-form-body">
+                <form id="feedback-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentName"><i class="fas fa-user"></i> Student Name</label>
+                            <input type="text" id="studentName" name="studentName" placeholder="Your full name" required>
+                            <div class="form-error" id="studentName-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentId"><i class="fas fa-id-card"></i> Student ID</label>
+                            <input type="text" id="studentId" name="studentId" placeholder="e.g. S12345" required>
+                            <div class="form-error" id="studentId-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department"><i class="fas fa-building"></i> Department</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option>Computer Science</option>
+                                <option>Electronics</option>
+                                <option>Mechanical</option>
+                                <option>Civil</option>
+                                <option>Electrical</option>
+                                <option>Information Technology</option>
+                            </select>
+                            <div class="form-error" id="department-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="year"><i class="fas fa-calendar"></i> Year / Semester</label>
+                            <select id="year" name="year" required>
+                                <option value="">Select Year</option>
+                                <option>1st Year</option>
+                                <option>2nd Year</option>
+                                <option>3rd Year</option>
+                                <option>4th Year</option>
+                            </select>
+                            <div class="form-error" id="year-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-book"></i> Subject Name</label>
+                            <input type="text" id="subject" name="subject" placeholder="e.g. Data Structures" required>
+                            <div class="form-error" id="subject-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="faculty"><i class="fas fa-chalkboard-user"></i> Faculty Name</label>
+                            <input type="text" id="faculty" name="faculty" placeholder="e.g. Prof. John Doe" required>
+                            <div class="form-error" id="faculty-error"></div>
+                        </div>
+                    </div>
+
+                    <!-- Star Rating -->
+                    <div class="form-group">
+                        <label><i class="fas fa-star"></i> Rating</label>
+                        <div class="star-rating">
+                            <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+                            <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+                            <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+                            <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+                            <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+                            <span class="rating-value">0 / 5</span>
+                            <input type="hidden" id="rating" name="rating" value="0">
+                        </div>
+                        <div class="form-error" id="rating-error"></div>
+                    </div>
+
+                    <!-- Feedback Textarea -->
+                    <div class="form-group">
+                        <label for="feedback">
+                            <i class="fas fa-comments"></i> Your Feedback
+                            <span style="color:var(--text-light);font-weight:400;font-size:.82rem;"> (min 20 characters)</span>
+                        </label>
+                        <textarea id="feedback" name="feedback" placeholder="Share your thoughts about the course, teaching style, materials, pace, and overall experience…" required minlength="20"></textarea>
+                        <div class="character-count"><span id="char-count">0</span> / 1000</div>
+                        <div class="form-error" id="feedback-error"></div>
+                    </div>
+
+                    <!-- Sentiment Preview -->
+                    <div class="sentiment-preview" id="sentiment-preview">
+                        <h4><i class="fas fa-robot"></i> Live AI Sentiment Preview</h4>
+                        <div class="sentiment-preview-item">
+                            <span class="sentiment-icon">😊</span>
+                            <span class="sentiment-label">Positive</span>
+                            <span class="sentiment-percentage" id="sentiment-positive">0%</span>
+                        </div>
+                        <div class="sentiment-preview-item">
+                            <span class="sentiment-icon">😐</span>
+                            <span class="sentiment-label">Neutral</span>
+                            <span class="sentiment-percentage" id="sentiment-neutral">0%</span>
+                        </div>
+                        <div class="sentiment-preview-item">
+                            <span class="sentiment-icon">😞</span>
+                            <span class="sentiment-label">Negative</span>
+                            <span class="sentiment-percentage" id="sentiment-negative">0%</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-footer">
+                <button type="button" class="btn btn-secondary" id="reset-btn">
+                    <i class="fas fa-redo"></i> Clear
+                </button>
+                <button type="submit" form="feedback-form" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Feedback
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="feedback-success-container" id="success-container">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h2>Thank You!</h2>
+            <p>Your feedback has been submitted and analyzed successfully. Your input helps shape better education for everyone.</p>
+
+            <div style="background:#f0fdf4;border-left:4px solid var(--success);padding:1rem;border-radius:var(--radius);margin:1.5rem auto;max-width:480px;text-align:left;">
+                <p style="margin:0;color:#166534;font-size:.88rem;">
+                    <strong>Sentiment Analysis Complete:</strong> Your feedback has been categorized. Check the dashboard to see how it contributes to overall analytics.
+                </p>
+            </div>
+
+            <div class="success-actions">
+                <button onclick="location.href='dashboard.html'" class="btn btn-primary">
+                    <i class="fas fa-chart-line"></i> View Dashboard
+                </button>
+                <button onclick="location.reload()" class="btn btn-secondary">
+                    <i class="fas fa-pen"></i> Submit Another
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+<script type="module" src="../js/pages/feedback.js"></script>
+</body>
+</html>

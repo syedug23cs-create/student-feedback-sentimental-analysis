@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedBack Pro — Student Sentiment Analysis</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .landing {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #5b47e0 0%, #ec4899 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .landing::before {
+            content: '';
+            position: absolute;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.05);
+            top: -200px; right: -200px;
+        }
+        .landing::after {
+            content: '';
+            position: absolute;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.05);
+            bottom: -150px; left: -150px;
+        }
+        .landing-content {
+            max-width: 640px;
+            position: relative;
+            z-index: 1;
+            animation: slideInUp .8s ease;
+        }
+        .landing-logo {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: float 4s ease-in-out infinite;
+            display: block;
+        }
+        .landing-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: .85rem;
+        }
+        .landing-subtitle {
+            font-size: 1.05rem;
+            opacity: .9;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 14px;
+            padding: 1.25rem 1rem;
+            backdrop-filter: blur(10px);
+            transition: all .3s ease;
+        }
+        .feature-card:hover {
+            background: rgba(255,255,255,.2);
+            transform: translateY(-4px);
+        }
+        .feature-icon { font-size: 1.75rem; margin-bottom: .5rem; }
+        .feature-name { font-size: .85rem; font-weight: 700; }
+        .landing-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .btn-land {
+            padding: .85rem 2rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            transition: all .3s;
+            border: 2px solid transparent;
+        }
+        .btn-land-primary {
+            background: #fff;
+            color: var(--primary);
+        }
+        .btn-land-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.25);
+        }
+        .btn-land-secondary {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255,255,255,.6);
+        }
+        .btn-land-secondary:hover {
+            background: rgba(255,255,255,.15);
+        }
+        .landing-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,.2);
+            font-style: italic;
+            opacity: .7;
+            font-size: .9rem;
+        }
+        .auth-banner {
+            position: fixed;
+            top: 1.5rem; right: 1.5rem;
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.25);
+            backdrop-filter: blur(10px);
+            padding: .85rem 1.25rem;
+            border-radius: var(--radius);
+            font-size: .88rem;
+            display: none;
+            animation: slideInRight .5s ease;
+            z-index: 10;
+        }
+        .auth-banner.show { display: block; }
+        .auth-banner a { color: #fff; font-weight: 700; text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .features-grid { grid-template-columns: repeat(2,1fr); }
+            .landing-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing">
+        <div class="auth-banner" id="auth-banner">
+            Already logged in! <a href="pages/dashboard.html">Go to Dashboard →</a>
+        </div>
+
+        <div class="landing-content">
+            <span class="landing-logo"><i class="fas fa-chart-pie"></i></span>
+
+            <h1 class="landing-title">
+                Student Feedback<br>Sentiment Analysis
+            </h1>
+
+            <p class="landing-subtitle">
+                Collect valuable student feedback, analyze sentiment using AI, and gain deep insights into educational quality through beautiful visualizations.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <div class="feature-name">Feedback Collection</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <div class="feature-name">AI Analysis</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="feature-name">Analytics</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="feature-name">Real-time</div>
+                </div>
+            </div>
+
+            <div class="landing-btns">
+                <a href="pages/login.html" class="btn-land btn-land-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="pages/signup.html" class="btn-land btn-land-secondary">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            </div>
+
+            <p class="landing-footer">
+                "Your feedback shapes the future of education. Every opinion matters."
+            </p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { getCurrentUser } from './js/firebase.js';
+        if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+        try {
+            const user = await getCurrentUser();
+            if (user) document.getElementById('auth-banner').classList.add('show');
+        } catch(e) {}
+    </script>
+</body>
+</html>

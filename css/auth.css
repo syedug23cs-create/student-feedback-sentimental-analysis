@@ -1,0 +1,189 @@
+/* ====================================
+   AUTH PAGES (login, signup, forgot-password)
+   ==================================== */
+
+.auth-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* Left Panel */
+.auth-left {
+  background: linear-gradient(135deg, #5b47e0 0%, #ec4899 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-left::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  top: -120px;
+  right: -100px;
+}
+.auth-left::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  bottom: -80px;
+  left: -60px;
+}
+
+.auth-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.auth-logo {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: float 4s ease-in-out infinite;
+  display: block;
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.auth-subtitle {
+  font-size: 1rem;
+  opacity: .88;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+/* Right Panel */
+.auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 440px;
+  animation: slideInUp .5s ease;
+}
+
+.auth-form-header {
+  margin-bottom: 2rem;
+}
+.auth-form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .35rem;
+}
+.auth-form-header p {
+  color: var(--text-muted);
+  font-size: .9rem;
+}
+
+.auth-form-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: .88rem;
+  color: var(--text-muted);
+}
+.auth-form-link a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s;
+}
+.auth-form-link a:hover { color: var(--primary-dark); }
+
+/* Password Strength */
+.password-strength {
+  margin-top: .5rem;
+}
+.strength-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: .35rem;
+}
+.strength-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width .4s ease, background .4s ease;
+  width: 0%;
+}
+.strength-fill.weak   { width: 25%; background: var(--danger); }
+.strength-fill.fair   { width: 60%; background: var(--warning); }
+.strength-fill.strong { width: 100%; background: var(--success); }
+
+.strength-text {
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+
+/* Forgot Password page */
+.forgot-password-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #5b47e0 0%, #ec4899 100%);
+}
+
+.forgot-password-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--shadow-lg);
+  animation: scaleIn .4s ease;
+}
+
+.forgot-password-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: var(--text);
+}
+
+.forgot-password-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: .9rem;
+}
+
+/* Verification Steps */
+.verification-step {
+  display: none;
+}
+.verification-step.active {
+  display: block;
+  animation: fadeIn .35s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-container { grid-template-columns: 1fr; }
+  .auth-left { display: none; }
+  .auth-right { padding: 2rem 1.25rem; }
+}
